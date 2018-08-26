@@ -4,8 +4,18 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
+
+    @FindBy(xpath = ".//input[@id='Email']")
+    private WebElement loginField;
+
+    @FindBy(xpath = ".//input[@id='Password']")
+    private WebElement passField;
+
+    @FindBy(xpath = ".//button[@class='btn btn-block main-color']")
+    private WebElement loginButton;
 
     public void checkLoginUrl() {
         checkCurrentURL();
@@ -18,6 +28,7 @@ public class LoginPage extends ParentPage {
     public void openPage() {
         try {
             webDriver.get(baseURL + "/members/logon/");
+            checkCurrentURL();
             logger.info("Login Page is opened");
         } catch (Exception e) {
             logger.error("Login Page is not opened");
@@ -26,38 +37,15 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterLogin(String login) {
-        try {
-            WebElement webElement = webDriver.findElement(By.xpath(".//input[@id='Email']"));
-            webElement.clear();
-            webElement.sendKeys(login);
-            logger.info(login + " is entered to the Email field");
-        } catch (Exception e) {
-            logger.error("Can't enter Login");
-            Assert.fail("Can't enter Login");
-        }
+        actionWithElements.enterTextToElement(loginField, login);
     }
 
     public void enterPass(String password) {
-        try {
-            WebElement webElement = webDriver.findElement(By.xpath(".//input[@id='Password']"));
-            webElement.clear();
-            webElement.sendKeys(password);
-            logger.info(password + " is entered to the Password field");
-        } catch (Exception e) {
-            logger.error("Can't enter Password");
-            Assert.fail("Can't enter Password");
-        }
+        actionWithElements.enterTextToElement(passField, password);
     }
 
     public void clickOnLoginButton() {
-        try {
-            WebElement webElement = webDriver.findElement(By.xpath(".//button[@class='btn btn-block main-color']"));
-            webElement.click();
-            logger.info("Login button is clicked");
-        } catch (Exception e) {
-            logger.error("Can't click on Login Button");
-            Assert.fail("Can't click on Login Button");
-        }
+        actionWithElements.clickOnElement(loginButton);
     }
 
 }
