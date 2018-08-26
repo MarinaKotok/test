@@ -48,4 +48,7 @@ public class LoginPage extends ParentPage {
         actionWithElements.clickOnElement(loginButton);
     }
 
+    public void userLoggIn(String login, String password) {
+        openPage();
+    }
 }

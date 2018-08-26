@@ -59,11 +59,11 @@ Expected result:
 
 
 4. Change language
-Preconditions: https://obd-car-doctor.com/ru-ru/ is available
+Preconditions: https://obd-car-doctor.com/en-us/ is available
 
-1) Open the URL 'https://obd-car-doctor.com/ru-ru/'
-2) Click on the 'RU' button
-3) Choose 'EN' in the language DDL
+1) Open the URL 'https://obd-car-doctor.com/en-us/'
+2) Click on the 'EN' button
+3) Click on 'RU' in the language DDL
 
 Expected result: localization is changed to EN language
 URL is opened https://obd-car-doctor.com/ru-ru/

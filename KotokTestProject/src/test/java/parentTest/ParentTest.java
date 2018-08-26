@@ -28,7 +28,7 @@ public class ParentTest {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath()); /* что это? */
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver); /* создается объект */
         homePage = new HomePage(webDriver);
         profilePage = new ProfilePage(webDriver);

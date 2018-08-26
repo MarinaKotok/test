@@ -30,7 +30,7 @@ public class ActionWithElements {
 
     public void clickOnElement(WebElement webElement) {
         try {
-            webElement.clear();
+            webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
