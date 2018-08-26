@@ -6,10 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.ParentPage;
-import pages.ProfilePage;
+import pages.*;
 
 import java.io.File; /* что это? */
 import java.util.concurrent.TimeUnit;
@@ -20,6 +17,11 @@ public class ParentTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected ProfilePage profilePage;
+    protected CarsPage carsPage;
+    protected PreferencesPage preferencesPage;
+    protected PostPage postPage;
+    protected SmallProfilePage smallProfilePage;
+
 
 
     @Before
@@ -32,6 +34,12 @@ public class ParentTest {
         loginPage = new LoginPage(webDriver); /* создается объект */
         homePage = new HomePage(webDriver);
         profilePage = new ProfilePage(webDriver);
+        carsPage = new CarsPage(webDriver);
+        preferencesPage = new PreferencesPage(webDriver);
+        postPage = new PostPage(webDriver);
+        profilePage = new ProfilePage(webDriver);
+        smallProfilePage = new SmallProfilePage(webDriver);
+
     }
 
     @After

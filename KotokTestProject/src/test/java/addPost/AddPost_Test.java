@@ -8,7 +8,16 @@ public class AddPost_Test extends ParentTest {
 
     @Test
     public void addPost_TC() {
-        loginPage.userLoggIn("m.kotok@pnn.in.ua", "12345678");
+        loginPage.userLoggedIn("m.kotok@pnn.in.ua", "12345678");
+        profilePage.clickOnAddPostButton();
+        postPage.checkCurrentURL();
+        postPage.clickOnTitle();
+        postPage.enterTitle();
+
+
+
+
+
 
     }
 

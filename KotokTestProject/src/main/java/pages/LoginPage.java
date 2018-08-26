@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
+    ProfilePage profilePage;
 
     @FindBy(xpath = ".//input[@id='Email']")
     private WebElement loginField;
@@ -23,6 +24,7 @@ public class LoginPage extends ParentPage {
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver, "/members/logon/");
+        profilePage = new ProfilePage(webDriver);
     }
 
     public void openPage() {
@@ -48,7 +50,19 @@ public class LoginPage extends ParentPage {
         actionWithElements.clickOnElement(loginButton);
     }
 
-    public void userLoggIn(String login, String password) {
+
+    /**
+     * Method validLogin
+     * @param login (valid login only)
+     * @param password (valid password only)
+     */
+    public void userLoggedIn(String login, String password) {
         openPage();
+        enterLogin(login);
+        enterPass(password);
+        clickOnLoginButton();
+        profilePage.checkCurrentURL();
+        profilePage.checkProfile();
+
     }
 }
