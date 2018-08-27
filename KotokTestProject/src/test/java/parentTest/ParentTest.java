@@ -21,6 +21,7 @@ public class ParentTest {
     protected PreferencesPage preferencesPage;
     protected PostPage postPage;
     protected SmallProfilePage smallProfilePage;
+    protected AddCarPage addCarPage;
 
 
 
@@ -39,6 +40,7 @@ public class ParentTest {
         postPage = new PostPage(webDriver);
         profilePage = new ProfilePage(webDriver);
         smallProfilePage = new SmallProfilePage(webDriver);
+        addCarPage = new AddCarPage(webDriver);
 
     }
 

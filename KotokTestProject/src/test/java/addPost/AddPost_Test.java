@@ -12,7 +12,11 @@ public class AddPost_Test extends ParentTest {
         profilePage.clickOnAddPostButton();
         postPage.checkCurrentURL();
         postPage.clickOnTitle();
-        postPage.enterTitle();
+        postPage.enterTitle("Test title");
+        postPage.selectCategory("");
+        postPage.enterComment("test Comment");
+        postPage.clickOnCreateDiscussionButton();
+
 
 
 

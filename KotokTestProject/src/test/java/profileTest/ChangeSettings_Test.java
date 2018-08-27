@@ -14,7 +14,7 @@ public class ChangeSettings_Test extends ParentTest {
         smallProfilePage.checkCurrentURL();
         profilePage.clickOnMyPreferencesMenu();
         preferencesPage.checkCurrentURL();
-        preferencesPage.clickOnDistanceDDL();
+//        preferencesPage.
 
 
 

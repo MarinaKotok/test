@@ -2,8 +2,12 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class ActionWithElements {
     WebDriver webDriver;
@@ -46,5 +50,29 @@ public class ActionWithElements {
             logger.info("Element is displayed  - false");
             return false;
         }
+    }
+
+    public boolean isElementInList(String xPathLocator) {
+        try {
+            List<WebElement> webElementList =  webDriver.findElements(By.xpath(xPathLocator));
+            if (webElementList.size() > 0) {
+                return true;
+            }else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void selectValueInDDL(WebElement ddlElement, String value) {
+        try {
+            Select select = new Select(ddlElement);
+            select.selectByValue(value);
+            logger.info(value + " was selected from DDL");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+
     }
 }

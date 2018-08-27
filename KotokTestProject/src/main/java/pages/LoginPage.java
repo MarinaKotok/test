@@ -43,6 +43,7 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterPass(String password) {
+
         actionWithElements.enterTextToElement(passField, password);
     }
 
