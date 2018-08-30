@@ -5,16 +5,21 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class ActionWithElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait20;
 
     public ActionWithElements(WebDriver webDriver) {
+
         this.webDriver = webDriver;
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
     public void enterTextToElement(WebElement webElement, String text) {
@@ -68,6 +73,7 @@ public class ActionWithElements {
     public void selectValueInDDL(WebElement ddlElement, String value) {
         try {
             Select select = new Select(ddlElement);
+//            webDriverWait20.until(ExpectedConditions.elementSelectionStateToBe(ddlElement, true)); /* не правильно */
             select.selectByValue(value);
             logger.info(value + " was selected from DDL");
         } catch (Exception e) {
