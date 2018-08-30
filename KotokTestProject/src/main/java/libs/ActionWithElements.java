@@ -73,7 +73,7 @@ public class ActionWithElements {
     public void selectValueInDDL(WebElement ddlElement, String value) {
         try {
             Select select = new Select(ddlElement);
-//            webDriverWait20.until(ExpectedConditions.elementSelectionStateToBe(ddlElement, true)); /* не правильно */
+            webDriverWait20.until(ExpectedConditions.visibilityOf(ddlElement)); /* не правильно */
             select.selectByValue(value);
             logger.info(value + " was selected from DDL");
         } catch (Exception e) {

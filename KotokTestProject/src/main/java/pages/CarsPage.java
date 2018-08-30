@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class CarsPage extends ParentPage {
     AddCarPage addCarPage;
 
-    @FindBy(xpath = ".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Honda'] and .//*[text()='Z']and .//*[text()='2007']]//..//..//*[text()='Remove']") /* как найти одну кнопку среди таких же других?*/
+    @FindBy(xpath = ".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]//..//..//*[text()='Remove']") /* как найти одну кнопку среди таких же других?*/
     private WebElement buttonRemove;
 
     @FindBy(xpath = ".//div[@class='btn btn-success']")
