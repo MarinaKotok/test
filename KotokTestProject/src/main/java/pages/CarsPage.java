@@ -20,11 +20,15 @@ public class CarsPage extends ParentPage {
     }
 
 
-    public void deleteAllCarsWithCurrentName(String carBrand, String carModel, String carYear, String carEngine) {
-       while (isEngineInList(carBrand, carModel, carYear, carEngine)) {
+    public void deleteAllCarsWithCurrentName(String xPathLocator) {
+       while (isCarInList(xPathLocator)) {
            clickButtonRemove();
-           logger.info("Car with Engine + " + carBrand + " " + carModel + " " + carYear + " " + carEngine + " was deleted");
+           logger.info("Car with name + " + xPathLocator + " was deleted");
        }
+    }
+
+    private boolean isCarInList(String xPathLocator) {
+        return actionWithElements.isElementInList(".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]");
     }
 
     private void clickButtonRemove() {
@@ -40,7 +44,7 @@ public class CarsPage extends ParentPage {
         actionWithElements.clickOnElement(addButton);
     }
 
-    public boolean isNewCarAdded(String carBrand, String carModel, String carYear, String carEngine) {
-        return actionWithElements.isElementInList(".//*[text()='" + carBrand + " " + carModel + " " + carYear + " " + carEngine + "']");
+    public boolean isNewCarAdded(String carname) {
+        return actionWithElements.isElementInList(".//*[text()='" + carname + "']']");
     }
 }

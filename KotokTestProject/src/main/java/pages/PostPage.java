@@ -11,11 +11,14 @@ public class PostPage extends ParentPage {
     @FindBy(xpath = ".//select[@id='Category']")
     private WebElement categoryDDL;
 
-    @FindBy(xpath = ".//body[@id='tinymce']//p") /* ----? должен быть input?*/
+    @FindBy(xpath = ".//div[@id='mceu_26']//iframe[@id='Content_ifr']") /* ----? должен быть input?*/
     private WebElement commentField;
 
     @FindBy(xpath = ".//button[@id='createTopicSubmitBtn']")
     private WebElement createDiscussionButton;
+
+    @FindBy(xpath = ".//span[@class='input-group-addon dropdown-toggle']")
+    private WebElement category;
 
     public PostPage(WebDriver webDriver) {
 
@@ -45,5 +48,17 @@ public class PostPage extends ParentPage {
     public void clickOnCreateDiscussionButton() {
 
         actionWithElements.clickOnElement(createDiscussionButton);
+    }
+
+    public void clickOnCategoryDDL() {
+        actionWithElements.clickOnElement(category);
+    }
+
+    public void clickOnCommentField() {
+        actionWithElements.clickOnElement(commentField);
+    }
+
+    public void selectValue(String valueFromCategoryDDL) {
+        actionWithElements.selectValueInDDL(categoryDDL, valueFromCategoryDDL);
     }
 }

@@ -57,9 +57,9 @@ public class ActionWithElements {
         }
     }
 
-    public boolean isElementInList(String xPathLocator) {
+    public boolean isElementInList(String carLocator) {
         try {
-            List<WebElement> webElementList =  webDriver.findElements(By.xpath(xPathLocator));
+            List<WebElement> webElementList =  webDriver.findElements(By.xpath(carLocator));
             if (webElementList.size() > 0) {
                 return true;
             }else {
@@ -73,12 +73,17 @@ public class ActionWithElements {
     public void selectValueInDDL(WebElement ddlElement, String value) {
         try {
             Select select = new Select(ddlElement);
-            webDriverWait20.until(ExpectedConditions.visibilityOf(ddlElement)); /* не правильно */
+//            webDriverWait20.until(ExpectedConditions.elementToBeClickable(ddlElement));
             select.selectByValue(value);
             logger.info(value + " was selected from DDL");
         } catch (Exception e) {
+            logger.error("Can't select " + value + " from DDL");
             printErrorAndStopTest(e);
         }
+
+    }
+
+    public void submit() {
 
     }
 }
