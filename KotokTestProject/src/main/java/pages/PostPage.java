@@ -1,10 +1,12 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class PostPage extends ParentPage {
+
     @FindBy(xpath = ".//input[@id='Name']")
     protected WebElement titlefield;
 
@@ -19,6 +21,10 @@ public class PostPage extends ParentPage {
 
     @FindBy(xpath = ".//span[@class='input-group-addon dropdown-toggle']")
     private WebElement category;
+
+    @FindBy(xpath = ".//input[@id='Categoryundefined']")
+    private WebElement categoryInput;
+
 
     public PostPage(WebDriver webDriver) {
 
@@ -51,14 +57,30 @@ public class PostPage extends ParentPage {
     }
 
     public void clickOnCategoryDDL() {
+
         actionWithElements.clickOnElement(category);
     }
 
     public void clickOnCommentField() {
+
         actionWithElements.clickOnElement(commentField);
     }
 
     public void selectValue(String valueFromCategoryDDL) {
         actionWithElements.selectValueInDDL(categoryDDL, valueFromCategoryDDL);
+    }
+
+    public void clickOnCategoryInput() {
+        actionWithElements.clickOnElement(categoryInput);
+    }
+
+    public void enterCategory(String categoryName) {
+        actionWithElements.enterTextToElement(categoryInput, categoryName);
+        categoryInput.sendKeys(Keys.ENTER);
+        categoryInput.sendKeys(Keys.TAB);
+    }
+
+    public boolean isAlertAppears (WebElement webElement) {
+        return actionWithElements.isElementDisplayed(webElement);
     }
 }

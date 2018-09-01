@@ -83,7 +83,12 @@ public class ActionWithElements {
 
     }
 
-    public void submit() {
-
+    public void clearElement(WebElement webElement) {
+        try {
+            webElement.clear();
+            logger.info(webElement + " was cleared");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 }

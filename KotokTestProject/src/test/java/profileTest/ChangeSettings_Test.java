@@ -14,7 +14,19 @@ public class ChangeSettings_Test extends ParentTest {
         smallProfilePage.checkCurrentURL();
         profilePage.clickOnMyPreferencesMenu();
         preferencesPage.checkCurrentURL();
-//        preferencesPage.
+        preferencesPage.clickOnDistanceInput();
+        preferencesPage.clearDistanceInput();
+        preferencesPage.enterDistanceValue("Kilometers");
+        preferencesPage.clickOnVolumeInput();
+        preferencesPage.clearVolumInput();
+        preferencesPage.enterVolumeValue("Liters");
+        preferencesPage.clickOnSaveButton();
+
+
+//       неправильно, не придумала, как проверить, если результат, который нужно проверять - два заполненных поля инпута
+//        checkAcceptanceCriteria("Settings weren't changed",
+//                preferencesPage.isDistanceChanged("kilometers"),
+//                true);
 
 
 

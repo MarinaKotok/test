@@ -16,7 +16,7 @@ Expected result: User is logged in, page is opened on the profile User's page wi
 
 Postcondition: close a browser
 
-2. Add post
+2. Check allert on Add post page
 Precondition: User is logges in with the following credentials:
 login - 'm.kotok@pnn.in.ua'
 password - '12345678'
@@ -24,19 +24,17 @@ page 'https://obd-car-doctor.com/en-us/topic/create/' is available
 test data:
 Title - 'Test title'
 Choose Category - 'Trouble codes'
-Comment -  'test comment'
 
 Test:
 1) click on the 'Add post' button - page with URL 'https://obd-car-doctor.com/en-us/topic/create/' is opened
 2) enter title to the Title field -
-3) choose category in the Choose Category DDL
-4) enter a comment to the Comment field
+3) click on Category input
+4) enter "- Hello forum!"
 5) click on the 'Create discussion button'
 
 Expected result:
-Comment is added and dysplayed on the page 'https://obd-car-doctor.com/en-us/home/'
+Comment is not added, page stays the same, alert "This Field is Required" appears
 
-Postcondition: delete added post
 
 3. Change settings in myProfilePage
 Preconditions:
@@ -76,29 +74,32 @@ User is logged in with the following credentials:
 login - 'm.kotok@pnn.in.ua'
 password - '12345678'
 Test data:
-Brand - 'Bee Bee'
-Model - 'XS'
-Year - '2016'
-Engine - '9.6 kWh (27 Hp) Automatic'
+Brand - 'Toyota'
+Model - 'RAV 4'
+Year - '2010'
+Engine - '2.2 D-CAT (150 Hp)'
 
 Test:
 1) Open MyProfile page with the URL 'https://obd-car-doctor.com/en-us/members/userprofile/631daa86-7962-42b9-9af0-a7e0010a8c07/'
 2) click on the 'My Cars' menu item
 3) check if a car with the following parameters isn't added:
-Brand - 'Bee Bee'
-Model - 'XS'
-Year - '2016'
-Engine - '9.6 kWh (27 Hp) Automatic'
+Brand - 'Toyota'
+Model - 'RAV 4'
+Year - '2010'
+Engine - '2.2 D-CAT (150 Hp)'
+If added - delete car(s) with such parameters
 4) Click on "Add" button
-5) Choose 'Bee Bee' in the Brand DDL
-6) Choose 'XS' in the Model DDL
-7) Choose '2016' in the Year DDL
-8) Choose '9.6 kWh (27 Hp) Automatic' in the Engine DDL
-9) Click on the 'Save' button
+5) Click on Brand input
+6) Enter "Toyota" to the Brand input
+7) Click on Model input
+8) Enter "RAV 4" to the Model input
+9) Click on Year input
+10) Enter "2.2 D-CAT 150 Hp)" to the Engine input
+11) Click on the 'Save' button
 Expected result: a car is added to the Car list with the following parameters:
-Brand - 'Bee Bee'
-Model - 'XS'
-Year - '2016'
-Engine - '9.6 kWh (27 Hp) Automatic'
+Brand - 'Toyota'
+Model - 'RAV 4'
+Year - '2010'
+Engine - '2.2 D-CAT 150 Hp)'
 
 Postcondition: delete added car
