@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.security.Key;
-
 public class AddCarPage extends ParentPage {
 
     @FindBy(xpath = ".//div[@class='save btn btn-success']")

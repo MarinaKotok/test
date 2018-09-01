@@ -12,7 +12,7 @@ import java.io.File; /* что это? */
 import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
-    WebDriver webDriver;
+    public WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected HomePage homePage;
@@ -49,7 +49,7 @@ public class ParentTest {
         webDriver.quit();
     }
 
-    protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected) {
+    public void checkAcceptanceCriteria(String message, boolean actual, boolean expected) {
         if (actual != expected) {
             logger.error("Acceptance Criteria ia failed: " + message);
             Assert.assertEquals(message, expected, actual);

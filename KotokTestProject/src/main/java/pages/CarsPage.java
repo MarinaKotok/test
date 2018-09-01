@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class CarsPage extends ParentPage {
     AddCarPage addCarPage;
 
-    @FindBy(xpath = ".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]//..//..//*[text()='Remove']") /* как найти одну кнопку среди таких же других?*/
+    @FindBy(xpath = ".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]//..//..//*[text()='Remove']")
     private WebElement buttonRemove;
 
     @FindBy(xpath = ".//div[@class='btn btn-success']")
@@ -20,14 +20,14 @@ public class CarsPage extends ParentPage {
     }
 
 
-    public void deleteAllCarsWithCurrentName(String xPathLocator) {
-       while (isCarInList(xPathLocator)) {
+    public void deleteAllCarsWithCurrentName(String carName) {
+       while (isCarInList(carName)) {
            clickButtonRemove();
-           logger.info("Car with name + " + xPathLocator + " was deleted");
+           logger.info("Car with name + " + carName + " was deleted");
        }
     }
 
-    private boolean isCarInList(String xPathLocator) {
+    private boolean isCarInList(String carLocator) {
         return actionWithElements.isElementInList(".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]");
     }
 
@@ -44,7 +44,7 @@ public class CarsPage extends ParentPage {
         actionWithElements.clickOnElement(addButton);
     }
 
-    public boolean isNewCarAdded(String carname) {
-        return actionWithElements.isElementInList(".//*[text()='" + carname + "']']");
+    public boolean isNewCarAdded(String xPathLocator) {
+        return actionWithElements.isElementInList(".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]");
     }
 }

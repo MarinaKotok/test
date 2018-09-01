@@ -57,9 +57,9 @@ public class ActionWithElements {
         }
     }
 
-    public boolean isElementInList(String carLocator) {
+    public boolean isElementInList(String carXPathLocator) {
         try {
-            List<WebElement> webElementList =  webDriver.findElements(By.xpath(carLocator));
+            List<WebElement> webElementList =  webDriver.findElements(By.xpath(carXPathLocator));
             if (webElementList.size() > 0) {
                 return true;
             }else {

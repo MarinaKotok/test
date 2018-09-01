@@ -2,6 +2,7 @@ package profileTest;
 
 import org.junit.After;
 import org.junit.Test;
+
 import parentTest.ParentTest;
 
 public class AddCar_Test extends ParentTest {
@@ -15,7 +16,7 @@ public class AddCar_Test extends ParentTest {
         loginPage.userLoggedIn("m.kotok@pnn.in.ua", "12345678");
         profilePage.clickOnMenuCar();
         carsPage.checkCurrentURL();
-//        carsPage.deleteAllCarsWithCurrentName(".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]");
+        carsPage.deleteAllCarsWithCurrentName("Toyota RAV 4 2010 2.2 D-CAT (150 Hp)");
         carsPage.clickOnAddButton();
         addCarPage.checkCurrentURL();
         addCarPage.clickOnBrandDDL();
@@ -33,14 +34,14 @@ public class AddCar_Test extends ParentTest {
         addCarPage.clickButtonSave();
         carsPage.checkCurrentURL();
 
-//        checkAcceptanceCriteria("Car was not added",
-//                carsPage.isNewCarAdded(carBrand, carModel, carYear, carEngine),
-//                true);
+        checkAcceptanceCriteria("Car was not added",
+                carsPage.isNewCarAdded(".//div[@class='car-item-container']//div[@class='car-item-info-grpup'][.//*[text()='Toyota'] and .//*[text()='RAV 4']and .//*[text()='2010']]"),
+                true);
     }
 
 //    @After
 //    public void deleteNewCar() {
-//        carsPage.deleteAllCarsWithCurrentName(carBrand, carModel, carYear, carEngine);
+//        carsPage.deleteAllCarsWithCurrentName("Toyota RAV 4 2010 2.2 D-CAT (150 Hp)");
 //    }
 
 }
